@@ -20,7 +20,7 @@ module peg(height, width, length) {
     }
 }
 // --------------------------------------------------------------
-// Call the peg module with two sets of parameters
+// Call the peg module with three sets of parameters
 peg(height1, width, length1);
 translate([0, 0, height1]) peg(height2, width, length2);
 // --------------------------------------------------------------
