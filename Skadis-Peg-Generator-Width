@@ -17,7 +17,7 @@ module peg(height, width, length) {
 // --------------------------------------------------------------
 module width(w) {
     // Calculate how many pegs can fit in the given width
-    num_pegs = floor(w / 45);  // Use ceil to ensure full number of pegs
+    num_pegs = floor(w / 45);
 
     // Generate the pegs using a loop
     for (i = [0:num_pegs]) {
