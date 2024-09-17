@@ -1,0 +1,32 @@
+// --------------------------------------------------------------
+//  Author: Angel Roman
+//  GitHub: https://github.com/legna-namor
+//  Purpose: IKEA Skadis Peg Generator based on width
+// --------------------------------------------------------------
+// Variables
+width=99;
+// Peg module
+module peg(height, width, length) {
+    linear_extrude(height) {
+        hull() {
+            translate([length - width, 0, 0]) circle(d = width);
+            circle(d = width);
+        }
+    }
+}
+// --------------------------------------------------------------
+module width(w) {
+    // Calculate how many pegs can fit in the given width
+    num_pegs = floor(w / 45);  // Use ceil to ensure full number of pegs
+
+    // Generate the pegs using a loop
+    for (i = [0:num_pegs]) {
+        n = i * 40;  // Manually increment n based on the loop index
+
+        translate([0, n, 0]) peg(5, 5, 15);       // First peg at n
+        translate([0, n, 5]) peg(5.2, 5, 7.5);    // Second peg offset in the Z axis
+    }
+}
+
+width(width);
+// --------------------------------------------------------------
